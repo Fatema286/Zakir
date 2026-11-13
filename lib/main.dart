@@ -37,13 +37,15 @@ class _MainDashboardState extends State<MainDashboard> {
     const AiChatScreen(),
     const PartsListScreen(),
     const CallSupportScreen(),
+    const StoreLocationScreen(),
+    const OwnerProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('স্মার্ট রিপেয়ার ও এআই এজেন্ট', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: const Text('জাকির মোবাইল সার্ভিসিং পয়েন্ট', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.blue.shade800,
       ),
       body: _pages[_selectedIndex],
@@ -51,9 +53,11 @@ class _MainDashboardState extends State<MainDashboard> {
         selectedIndex: _selectedIndex,
         onDestinationSelected: (index) => setState(() => _selectedIndex = index),
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.smart_toy), label: 'AI এজেন্ট'),
-          NavigationDestination(icon: Icon(Icons.phone_android), label: 'পার্টস লিস্ট'),
-          NavigationDestination(icon: Icon(Icons.video_call), label: 'ভিডিও কল'),
+          NavigationDestination(icon: Icon(Icons.smart_toy), label: 'এআই এজেন্ট'),
+          NavigationDestination(icon: Icon(Icons.phone_android), label: 'পার্টস'),
+          NavigationDestination(icon: Icon(Icons.support_agent), label: 'কল সাপোর্ট'),
+          NavigationDestination(icon: Icon(Icons.store), label: 'লোকেশন'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'প্রোফাইল'),
         ],
       ),
     );
@@ -70,7 +74,7 @@ class AiChatScreen extends StatefulWidget {
 class _AiChatScreenState extends State<AiChatScreen> {
   final TextEditingController _controller = TextEditingController();
   final List> _messages = [
-    {"sender": "AI", "text": "আসসালামু আলাইকুম! মোবাইল সার্ভিসিং বা পার্টসের দাম সম্পর্কে যেকোনো প্রশ্ন করুন।"}
+    {"sender": "AI", "text": "আসসালামু আলাইকুম! জাকির মোবাইল সার্ভিসিং পয়েন্টে আপনাকে স্বাগতম। মোবাইল সমস্যা বা পার্টস সম্পর্কে বলুন।"}
   ];
   bool _isLoading = false;
 
@@ -95,7 +99,7 @@ class _AiChatScreenState extends State<AiChatScreen> {
           "contents": [
             {
               "parts": [
-                {"text": "তুমি একজন অভিজ্ঞ মোবাইল সার্ভিসিং ইঞ্জিনিয়ার। সহজ বাংলায় উত্তর দাও: $text"}
+                {"text": "তুমি একজন অভিজ্ঞ মোবাইল সার্ভিসিং টেকনিশিয়ান। সহজ বাংলায় উত্তর দাও: $text"}
               ]
             }
           ]
@@ -192,14 +196,10 @@ class _PartsListScreenState extends State<PartsListScreen> {
     {"type": "ডিসপ্লে", "models": "Vivo Y11, Y12, Y15, Y17, Y12i, U10", "price": "১,১০০ - ১,৪৫০ টাকা"},
     {"type": "ডিসপ্লে", "models": "Vivo Y20, Y20s, Y12s, Y21 / Realme C21Y, C25Y", "price": "৮৫০ - ১,৩০০ টাকা"},
     {"type": "ডিসপ্লে", "models": "Samsung A12, M12, A02, A02s, A03, A03s", "price": "১,১৫০ - ১,৫৫০ টাকা"},
-    {"type": "ডিসপ্লে", "models": "Samsung A30, A50, A50s, A30s (OLED/Incell)", "price": "১,৬০০ - ৩,৮০০ টাকা"},
-    {"type": "ডিসপ্লে", "models": "Tecno Spark 6 Go, Spark 7 / Infinix Hot 10 Play / Itel Vision 1 Pro", "price": "১,১০০ - ১,৯০০ টাকা"},
-    {"type": "ডিসপ্লে", "models": "OnePlus Nord CE 2 Lite / Realme 9 Pro / Oppo K10", "price": "১,৫৫০ - ২,২০০ টাকা"},
-    {"type": "ব্যাটারি", "models": "BLP673 (Oppo A3s, A5, A7, A5s, A12 / Realme C1, 3)", "price": "৬৫০ - ৮৫০ টাকা"},
-    {"type": "ব্যাটারি", "models": "B-G7 / B-K3 (Vivo Y11, Y12, Y15, Y17, Y20, Y21)", "price": "৭০০ - ৯০০ টাকা"},
-    {"type": "ব্যাটারি", "models": "EB-BA217ABY (Samsung A12, A21s, A02s, A03s, M12)", "price": "৭৫০ - ৯৫০ টাকা"},
-    {"type": "ব্যাটারি", "models": "BL-49FX (Tecno Spark 4, 6 Go / Infinix Hot 8, 9 Play)", "price": "৬০০ - ৮০০ টাকা"},
-    {"type": "ব্যাটারি", "models": "BLP759 (OnePlus Nord, Nord CE, 7T)", "price": "১,১০০ - ১,৬০০ টাকা"},
+    {"type": "ডিসপ্লে", "models": "Samsung A30, A50, A50s, A30s", "price": "১,৬০০ - ৩,৮০০ টাকা"},
+    {"type": "ব্যাটারি", "models": "BLP673 (Oppo A3s, A5, A7, A5s, A12)", "price": "৬৫০ - ৮৫০ টাকা"},
+    {"type": "ব্যাটারি", "models": "B-G7 / B-K3 (Vivo Y11, Y12, Y15, Y17, Y20)", "price": "৭০০ - ৯০০ টাকা"},
+    {"type": "ব্যাটারি", "models": "EB-BA217ABY (Samsung A12, A21s, M12)", "price": "৭৫০ - ৯৫০ টাকা"},
   ];
 
   @override
@@ -314,6 +314,81 @@ class CallSupportScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class StoreLocationScreen extends StatelessWidget {
+  const StoreLocationScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Container(
+            height: 180,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: const Center(
+              child: Icon(Icons.map, size: 60, color: Colors.blue),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Card(
+            child: ListTile(
+              leading: Icon(Icons.location_on, color: Colors.red),
+              title: Text('জাকির মোবাইল সার্ভিসিং পয়েন্ট', style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text('যোগীর কোফা, বহেড়াতৈল, সখীপুর, টাঙ্গাইল\nফোন: ০১৭৯০৬০২৬১৩\nসকাল ৯টা - রাত ৮টা পর্যন্ত খোলা।'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class OwnerProfileScreen extends StatelessWidget {
+  const OwnerProfileScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          const CircleAvatar(
+            radius: 50,
+            child: Icon(Icons.person, size: 50),
+          ),
+          const SizedBox(height: 12),
+          const Text(
+            'প্রোপ্রাইটর ও টেকনিশিয়ান',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const Divider(height: 30),
+          const Text(
+            'আর্টিস্টিক পোর্ট্রেট স্কেচ:',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey, width: 2),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Center(
+                child: Text("আপনার জেনারেট করা স্কেচটি এখানে প্রদর্শিত হবে"),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
