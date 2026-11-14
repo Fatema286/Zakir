@@ -1,7 +1,7 @@
-? :
+dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.1
   zego_uikit_prebuilt_call: ^4.11.0
 environment:
-sdk: "&gt;=3.14.0 &lt;4.0.0"
+  sdk: ">=3.14.0 <4.0.0"
