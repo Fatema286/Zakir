@@ -217,7 +217,7 @@ class _PartsListScreenState extends State<PartsListScreen> {
             onChanged: (val) => setState(() => _searchQuery = val),
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
-              hintText: 'মডেল সার্চ করুন (যেমন: A12, Y20, Samsung)...',
+              hintText: 'মডেল সার্চ করুন (যেমন: A12s, Y20, Samsung)...',
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             ),
           ),
